@@ -1,0 +1,15 @@
+# health-mcp
+
+> FastMCP 3.4+ multi-source health data fusion server. VSM events from devices-mcp, Apple Health import, manual logging, trends.
+
+## Core
+
+- [README](README.md) – Overview, tools, VSM integration
+- [llms-full.txt](llms-full.txt) – Full reference for LLMs
+
+## Install
+
+```powershell
+uv sync
+uv run health-mcp          # stdio (Claude Desktop, Cursor)
+```

@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "health-mcp"
+version = "0.1.0"
+description = "Health data fusion MCP server — VSM events, Apple Health, trends, pet health"
+authors = [{name = "Sandra Schipal"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Topic :: Home Automation",
+]
+keywords = ["mcp", "health", "fastmcp", "vsm", "quantified-self"]
+
+dependencies = [
+    "fastmcp>=3.4.4,<4",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "httpx>=0.28.1",
+    "structlog>=23.0.0",
+    "prefab-ui>=0.14.0",
+    "click>=8.1.0",
+]
+
+[project.optional-dependencies]
+apple = [
+    "pyzipper>=0.3.6",
+    "lxml>=5.0.0",
+]
+trends = [
+    "numpy>=1.26.0",
+]
+webapp = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.35.0",
+]
+dev = [
+    "ruff>=0.15.0",
+    "pytest>=8.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/sandraschi/health-mcp"
+
+[project.scripts]
+health-mcp = "health_mcp.server:main"
+health-mcp-webapp = "health_mcp.webapp_runner:main"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "B", "S", "T20"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,19 @@
+{
+  "name": "health-mcp",
+  "version": "0.1.0",
+  "description": "Multi-source health data fusion MCP server",
+  "author": "Sandra Schipal",
+  "repository": "sandraschi/health-mcp",
+  "categories": ["health", "quantified-self", "pet-health"],
+  "mcp": {
+    "server": {
+      "command": "uv",
+      "args": ["run", "health-mcp"],
+      "env": {}
+    },
+    "tools": [
+      { "name": "health_data", "description": "Log, query, trend, and import health records from any source" },
+      { "name": "show_health_dashboard", "description": "Rich health summary card with recent metrics and trends" }
+    ]
+  }
+}
