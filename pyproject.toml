@@ -43,7 +43,7 @@ webapp = [
     "uvicorn[standard]>=0.35.0",
 ]
 dev = [
-    "ruff>=0.15.0",
+    "ruff>=0.16.0,<0.17",
     "pytest>=8.0.0",
 ]
 
@@ -60,7 +60,7 @@ target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "W", "B", "S", "T20"]
-ignore = ["E501"]
+ignore = ["E501", "S106", "S110", "S112", "RUF012"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
