@@ -68,7 +68,7 @@ class VSMEvent(BaseModel):
 
 
 class MealRecord(BaseModel):
-    """A meal event — start/end times and inferred contents."""
+    """A meal event - start/end times and inferred contents."""
 
     id: str = ""
     start_time: datetime = Field(default_factory=datetime.now)

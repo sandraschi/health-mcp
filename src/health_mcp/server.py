@@ -51,6 +51,7 @@ register_health_tools(app)
 
 try:
     from .tools._prefab import register_prefab_tools
+
     register_prefab_tools(app)
     logger.info("Prefab UI tools registered")
 except ImportError:
@@ -59,6 +60,7 @@ except ImportError:
 
 def main():
     from .transport import run_server
+
     run_server(app, server_name="health-mcp")
 
 

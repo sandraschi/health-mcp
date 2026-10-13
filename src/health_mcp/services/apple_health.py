@@ -109,7 +109,10 @@ def parse_export(file_path: str | Path, max_records: int = 10000) -> dict[str, A
 
     logger.info(
         "Apple Health import: %d records, %d skipped, %d errors, %d types",
-        imported, skipped, errors, len(types_imported),
+        imported,
+        skipped,
+        errors,
+        len(types_imported),
     )
     return {
         "imported": imported,

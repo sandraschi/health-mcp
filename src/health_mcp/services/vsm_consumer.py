@@ -1,4 +1,4 @@
-"""VSM event consumer — receives camera-based state machine events
+"""VSM event consumer - receives camera-based state machine events
 from devices-mcp and translates them into health records.
 
 Maps VSM device events to HealthMetric records:
@@ -54,14 +54,14 @@ def ingest_vsm_event(event: VSMEvent) -> str | None:
             source="vsm",
             source_device="dog_bowl",
             timestamp=event.timestamp,
-            notes="Bowl empty — refill needed",
+            notes="Bowl empty - refill needed",
         )
         store.add_record(hr)
         record_id = hr.id
-        logger.info("Dog bowl empty — refill needed")
+        logger.info("Dog bowl empty - refill needed")
 
     elif event.device.value == "fridge" and event.event == "opened":
-        pass  # Fridge open alone is not a meal — needs duration context
+        pass  # Fridge open alone is not a meal - needs duration context
 
     elif event.device.value == "bedroom" and event.event == "door_opened":
         hr = HealthRecord(

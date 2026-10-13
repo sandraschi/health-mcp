@@ -1,4 +1,4 @@
-"""Health data portmanteau tool — log, query, trend, import.
+"""Health data portmanteau tool - log, query, trend, import.
 
 Operations:
 - log_record: Store a health data point.
@@ -10,15 +10,13 @@ Operations:
 """
 
 import logging
-from datetime import datetime
 from typing import Any, Literal
 
 from ..models.health import (
     HealthMetric,
     HealthRecord,
-    TrendResult,
-    VSMEvent,
     VSMDevice,
+    VSMEvent,
 )
 from ..services.health_store import get_store
 from ..services.vsm_consumer import ingest_vsm_event
@@ -101,6 +99,7 @@ def register_health_tools(app):
                 if not file_path:
                     return {"success": False, "error": "file_path required"}
                 from ..services.apple_health import parse_export
+
                 result = parse_export(file_path)
                 return {"success": True, **result}
 

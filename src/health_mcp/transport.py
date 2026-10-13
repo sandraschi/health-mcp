@@ -16,6 +16,7 @@ ENV_PATH = "MCP_PATH"
 
 def get_transport_config() -> dict[str, Any]:
     import os
+
     return {
         "transport": os.getenv(ENV_TRANSPORT, "stdio"),
         "host": os.getenv(ENV_HOST, "127.0.0.1"),
@@ -34,6 +35,7 @@ def run_server(app: FastMCP, server_name: str = "health-mcp"):
     elif transport == "http":
         import uvicorn
         from fastapi.middleware.cors import CORSMiddleware
+
         http_app = app.http_app()
         http_app.add_middleware(
             CORSMiddleware,
@@ -51,4 +53,5 @@ def run_server(app: FastMCP, server_name: str = "health-mcp"):
 
 def main():
     from .server import app
+
     run_server(app)

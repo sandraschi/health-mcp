@@ -1,11 +1,10 @@
 """Prefab UI cards for health-mcp."""
 
 import logging
-from typing import Any
 
 from fastmcp.server.server import ToolResult
 from prefab_ui import PrefabApp
-from prefab_ui.components import Card, Div, Heading, Row
+from prefab_ui.components import Div, Heading, Row
 
 from ..services.health_store import get_store
 

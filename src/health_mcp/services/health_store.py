@@ -188,10 +188,7 @@ class HealthStore:
 
     def query_trend(self, metric: HealthMetric, days: int = 7) -> TrendResult:
         records = self.query_records(metric=metric, days=days)
-        values = [
-            r["value"] for r in records
-            if r["value"] is not None and isinstance(r["value"], (int, float))
-        ]
+        values = [r["value"] for r in records if r["value"] is not None and isinstance(r["value"], (int, float))]
         result = TrendResult(metric=metric, period_days=days, count=len(values))
         if values:
             result.avg = round(sum(values) / len(values), 2)
